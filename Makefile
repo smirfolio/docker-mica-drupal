@@ -20,11 +20,11 @@ build:
 
 # Run a Mica Docker instance
 run:
-	sudo docker run -d -p 8888:80 --name mica-drupal -v /home/ymarcon/projects/docker-mica-drupal:/data --link mysql:mysql --link mica:mica -e MYSQL_DATABASE=$(mysql_database) -e MYSQL_ROOT_PASSWORD=$(mysql_root_password) obiba/mica-drupal:snapshot
+	sudo docker run -d -p 8888:80 --name mica-drupal --link mysql:mysql --link mica:mica -e MYSQL_DATABASE=$(mysql_database) -e MYSQL_ROOT_PASSWORD=$(mysql_root_password) obiba/mica-drupal:snapshot
 
 # Run a Mica Docker instance with shell
 run-sh:
-	sudo docker run -ti -p 8888:80 --name mica-drupal -v /home/ymarcon/projects/docker-mica-drupal:/data --link mysql:mysql --link mica:mica -e MYSQL_DATABASE=$(mysql_database) -e MYSQL_ROOT_PASSWORD=$(mysql_root_password) obiba/mica-drupal:snapshot bash
+	sudo docker run -ti -p 8888:80 --name mica-drupal --link mysql:mysql --link mica:mica -e MYSQL_DATABASE=$(mysql_database) -e MYSQL_ROOT_PASSWORD=$(mysql_root_password) obiba/mica-drupal:snapshot bash
 
 # Show logs
 logs:
@@ -87,6 +87,6 @@ clean-mongodb:
 	sudo docker rm mongodb
 
 # Seed the Mica stack
-seed:
+seed-all:
 	./seed/opal-seed.sh
 	./seed/mica-seed.sh
