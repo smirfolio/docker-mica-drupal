@@ -15,7 +15,7 @@ COPY bin /opt/mica/bin
 RUN chmod +x -R /opt/mica/bin
 
 RUN \
-  apt-get update && DEBIAN_FRONTEND=noninteractive apt-get -y install supervisor pwgen wget unzip mysql-client
+  apt-get update && DEBIAN_FRONTEND=noninteractive apt-get -y install supervisor pwgen wget unzip mysql-client php5-curl
 
 # Install Mica Drupal client
 RUN \
