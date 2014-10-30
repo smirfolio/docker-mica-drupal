@@ -21,7 +21,7 @@ mica rest -mk https://$MICA_HOST:$MICA_PORT -u administrator -p password -m POST
 echo "Publishing networks..."
 mica rest -mk https://$MICA_HOST:$MICA_PORT -u administrator -p password -m PUT /draft/network/bbmri/_publish
 
-echo "Creating datasets..."
+echo "Creating study datasets..."
 mica rest -mk https://$MICA_HOST:$MICA_PORT -u administrator -p password -m POST /draft/study-datasets --content-type "application/json" < seed/mica/study-dataset-FNAC.json
 mica rest -mk https://$MICA_HOST:$MICA_PORT -u administrator -p password -m POST /draft/study-datasets --content-type "application/json" < seed/mica/study-dataset-WAVE1.json
 mica rest -mk https://$MICA_HOST:$MICA_PORT -u administrator -p password -m POST /draft/study-datasets --content-type "application/json" < seed/mica/study-dataset-WAVE2.json
@@ -41,7 +41,7 @@ mica rest -mk https://$MICA_HOST:$MICA_PORT -u administrator -p password -m POST
 mica rest -mk https://$MICA_HOST:$MICA_PORT -u administrator -p password -m POST /draft/study-datasets --content-type "application/json" < seed/mica/study-dataset-2003.json
 mica rest -mk https://$MICA_HOST:$MICA_PORT -u administrator -p password -m POST /draft/study-datasets --content-type "application/json" < seed/mica/study-dataset-2008.json
 
-echo "Publishing datasets..."
+echo "Publishing study datasets..."
 mica rest -mk https://$MICA_HOST:$MICA_PORT -u administrator -p password -m PUT /draft/study-dataset/fnac/_publish
 mica rest -mk https://$MICA_HOST:$MICA_PORT -u administrator -p password -m PUT /draft/study-dataset/wave1/_publish
 mica rest -mk https://$MICA_HOST:$MICA_PORT -u administrator -p password -m PUT /draft/study-dataset/wave2/_publish
@@ -60,3 +60,11 @@ mica rest -mk https://$MICA_HOST:$MICA_PORT -u administrator -p password -m PUT 
 mica rest -mk https://$MICA_HOST:$MICA_PORT -u administrator -p password -m PUT /draft/study-dataset/2000/_publish
 mica rest -mk https://$MICA_HOST:$MICA_PORT -u administrator -p password -m PUT /draft/study-dataset/2003/_publish
 mica rest -mk https://$MICA_HOST:$MICA_PORT -u administrator -p password -m PUT /draft/study-dataset/2008/_publish
+
+echo "Creating harmonization datasets..."
+mica rest -mk https://$MICA_HOST:$MICA_PORT -u administrator -p password -m POST /draft/harmonization-datasets --content-type "application/json" < seed/mica/harmonization-dataset-HOP.json
+mica rest -mk https://$MICA_HOST:$MICA_PORT -u administrator -p password -m POST /draft/harmonization-datasets --content-type "application/json" < seed/mica/harmonization-dataset-SMK.json
+
+echo "Publishing harmonization datasets..."
+mica rest -mk https://$MICA_HOST:$MICA_PORT -u administrator -p password -m PUT /draft/harmonization-dataset/hop/_publish
+mica rest -mk https://$MICA_HOST:$MICA_PORT -u administrator -p password -m PUT /draft/harmonization-dataset/smk/_publish

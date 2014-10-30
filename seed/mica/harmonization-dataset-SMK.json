@@ -1,0 +1,30 @@
+{
+    "id": "smk",
+    "name": [
+        {
+            "lang": "en",
+            "value": "Smoking"
+        }
+    ],
+    "acronym": [
+        {
+            "lang": "en",
+            "value": "SMK"
+        }
+    ],
+    "entityType": "Participant",
+    "published": true,
+    "obiba.mica.HarmonizationDatasetDto.type": {
+        "project": "mica",
+        "table": "SMK",
+        "studyTables": [
+            {
+                "studyId": "clsa",
+                "populationId": "core",
+                "dataCollectionEventId": "ps",
+                "project": "CLSA",
+                "table": "SMK"
+            }
+        ]
+    }
+}
