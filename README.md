@@ -23,7 +23,9 @@ Then connect to:
 
 * Opal [https://localhost:8843](https://localhost:8843)
 * Mica Admin [https://localhost:8845](https://localhost:8845)
-* Mica Drupal [http://localhost:8888](http://localhost:8888)
+* Mica Drupal [http://localhost:8888](http://localhost:8888) and [http://localhost:8888/?q=user/login](http://localhost:8888/?q=user/login) for login
+
+All username passwords are administrator/password.
 
 To shutdown the whole Mica stack:
 

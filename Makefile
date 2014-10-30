@@ -7,6 +7,8 @@ mysql_root_password=password
 
 no_cache=false
 
+pwd=`pwd`
+
 help:
 	@echo "make build run-mysql run stop clean"
 
@@ -24,7 +26,7 @@ run:
 
 # Run a Mica Docker instance with shell
 run-sh:
-	sudo docker run -ti -p 8888:80 --name mica-drupal --link mysql:mysql --link mica:mica -e MYSQL_DATABASE=$(mysql_database) -e MYSQL_ROOT_PASSWORD=$(mysql_root_password) obiba/mica-drupal:snapshot bash
+	sudo docker run -ti -p 8888:80 --name mica-drupal -v $(pwd):/data --link mysql:mysql --link mica:mica -e MYSQL_DATABASE=$(mysql_database) -e MYSQL_ROOT_PASSWORD=$(mysql_root_password) obiba/mica-drupal:snapshot bash
 
 # Show logs
 logs:
