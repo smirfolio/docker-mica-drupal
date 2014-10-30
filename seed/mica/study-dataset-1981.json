@@ -1,0 +1,26 @@
+{
+    "id": "1981",
+    "name": [
+        {
+            "lang": "en",
+            "value": "1981"
+        }
+    ],
+    "acronym": [
+        {
+            "lang": "en",
+            "value": "1981"
+        }
+    ],
+    "entityType": "Participant",
+    "published": false,
+    "obiba.mica.StudyDatasetDto.type": {
+        "studyTable": {
+            "studyId": "lbls",
+            "populationId": "core",
+            "dataCollectionEventId": "1981",
+            "project": "LBLS",
+            "table": "1981"
+        }
+    }
+}

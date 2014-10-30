@@ -1,0 +1,26 @@
+{
+    "id": "fnac",
+    "name": [
+        {
+            "lang": "en",
+            "value": "FNAC"
+        }
+    ],
+    "acronym": [
+        {
+            "lang": "en",
+            "value": "FNAC"
+        }
+    ],
+    "entityType": "Participant",
+    "published": false,
+    "obiba.mica.StudyDatasetDto.type": {
+        "studyTable": {
+            "studyId": "clsa",
+            "populationId": "core",
+            "dataCollectionEventId": "ps",
+            "project": "study1",
+            "table": "FNAC"
+        }
+    }
+}

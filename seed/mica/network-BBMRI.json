@@ -1,0 +1,104 @@
+{
+    "id": "bbmri",
+    "name": [
+        {
+            "lang": "en",
+            "value": "Biobanking and Biomolecular Resources Research Infrastructure"
+        }
+    ],
+    "acronym": [
+        {
+            "lang": "en",
+            "value": "BBMRI"
+        }
+    ],
+    "investigators": [
+        {
+            "title": "Dr.",
+            "firstName": "Parminder",
+            "lastName": "Raina",
+            "email": "praina@mcmaster.ca",
+            "phone": "1-905-525-9140 ext. 22197",
+            "institution": {
+                "name": [
+                    {
+                        "lang": "en",
+                        "value": "McMaster University"
+                    }
+                ],
+                "department": [
+                    {
+                        "lang": "en",
+                        "value": "Department of Clinical Epidemiology & Biostatistics"
+                    }
+                ],
+                "address": {
+                    "city": [
+                        {
+                            "lang": "en",
+                            "value": "Hamilton"
+                        }
+                    ],
+                    "state": "ON",
+                    "country": {
+                        "iso": "CAN",
+                        "name": [
+                            {
+                                "lang": "en",
+                                "value": ""
+                            }
+                        ]
+                    }
+                }
+            }
+        }
+    ],
+    "contacts": [
+        {
+            "title": "Dr.",
+            "firstName": "Parminder",
+            "lastName": "Raina",
+            "email": "praina@mcmaster.ca",
+            "phone": "1-905-525-9140 ext. 22197",
+            "institution": {
+                "name": [
+                    {
+                        "lang": "en",
+                        "value": "McMaster University"
+                    }
+                ],
+                "department": [
+                    {
+                        "lang": "en",
+                        "value": "Department of Clinical Epidemiology & Biostatistics"
+                    }
+                ],
+                "address": {
+                    "city": [
+                        {
+                            "lang": "en",
+                            "value": "Hamilton"
+                        }
+                    ],
+                    "state": "ON",
+                    "country": {
+                        "iso": "CAN",
+                        "name": [
+                            {
+                                "lang": "en",
+                                "value": ""
+                            }
+                        ]
+                    }
+                }
+            }
+        }
+    ],
+    "studyIds": [
+        "clsa",
+        "cls",
+        "ulsam",
+        "lbls"
+    ],
+    "published": false
+}

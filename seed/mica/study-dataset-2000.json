@@ -1,0 +1,26 @@
+{
+    "id": "2000",
+    "name": [
+        {
+            "lang": "en",
+            "value": "2000"
+        }
+    ],
+    "acronym": [
+        {
+            "lang": "en",
+            "value": "2000"
+        }
+    ],
+    "entityType": "Participant",
+    "published": false,
+    "obiba.mica.StudyDatasetDto.type": {
+        "studyTable": {
+            "studyId": "lbls",
+            "populationId": "core",
+            "dataCollectionEventId": "2000",
+            "project": "LBLS",
+            "table": "2000"
+        }
+    }
+}

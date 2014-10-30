@@ -85,3 +85,8 @@ clean-opal:
 clean-mongodb:
 	sudo docker stop mongodb
 	sudo docker rm mongodb
+
+# Seed the Mica stack
+seed:
+	./seed/opal-seed.sh
+	./seed/mica-seed.sh

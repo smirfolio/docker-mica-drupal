@@ -1,0 +1,26 @@
+{
+    "id": "wave4",
+    "name": [
+        {
+            "lang": "en",
+            "value": "Wave4"
+        }
+    ],
+    "acronym": [
+        {
+            "lang": "en",
+            "value": "Wave4"
+        }
+    ],
+    "entityType": "Participant",
+    "published": false,
+    "obiba.mica.StudyDatasetDto.type": {
+        "studyTable": {
+            "studyId": "cls",
+            "populationId": "core",
+            "dataCollectionEventId": "Wave4",
+            "project": "CLS",
+            "table": "Wave4"
+        }
+    }
+}

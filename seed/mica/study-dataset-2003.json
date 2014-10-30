@@ -1,0 +1,26 @@
+{
+    "id": "2003",
+    "name": [
+        {
+            "lang": "en",
+            "value": "2003"
+        }
+    ],
+    "acronym": [
+        {
+            "lang": "en",
+            "value": "2003"
+        }
+    ],
+    "entityType": "Participant",
+    "published": false,
+    "obiba.mica.StudyDatasetDto.type": {
+        "studyTable": {
+            "studyId": "lbls",
+            "populationId": "core",
+            "dataCollectionEventId": "2003",
+            "project": "LBLS",
+            "table": "2003"
+        }
+    }
+}
