@@ -30,6 +30,6 @@ All username passwords are administrator/password.
 To shutdown the whole Mica stack:
 
 ```
-make run-all
+make clean-all
 ```
 
