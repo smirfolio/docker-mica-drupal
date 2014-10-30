@@ -68,3 +68,7 @@ mica rest -mk https://$MICA_HOST:$MICA_PORT -u administrator -p password -m POST
 echo "Publishing harmonization datasets..."
 mica rest -mk https://$MICA_HOST:$MICA_PORT -u administrator -p password -m PUT /draft/harmonization-dataset/hop/_publish
 mica rest -mk https://$MICA_HOST:$MICA_PORT -u administrator -p password -m PUT /draft/harmonization-dataset/smk/_publish
+
+if [ -d "seed/mica-export" ]; then
+	mica import-zip -mk https://$MICA_HOST:$MICA_PORT -u administrator -p password -pub seed/mica-export
+fi
