@@ -15,6 +15,8 @@ cd /app && \
   drush en -y obiba_auth && \
   drush dl -y jquery_update && \
   drush en -y jquery_update && \
-  drush vset -y mica_url https://$MICA_PORT_8445_TCP_ADDR:8445
+  drush vset -y mica_url https://$MICA_PORT_8445_TCP_ADDR:8445 && \
+  drush vset -y jquery_update_jquery_version 1.8 && \
+  drush vset -y jquery_update_jquery_admin_version 1.8
 
 supervisord -n
