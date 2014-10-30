@@ -5,13 +5,10 @@
 mysql_database=drupal_mica 
 mysql_root_password=password
 
+no_cache=false
 
 help:
 	@echo "make build run-mysql run stop clean"
-
-# List Docker images
-images:
-	sudo docker images
 
 #
 # Mica Drupal
@@ -19,7 +16,7 @@ images:
 
 # Build Mica Docker image
 build:
-	sudo docker build -t="obiba/mica-drupal:snapshot" .
+	sudo docker build --no-cache=$(no_cache) -t="obiba/mica-drupal:snapshot" .
 
 # Run a Mica Docker instance
 run:
@@ -56,3 +53,35 @@ stop-mysql:
 # Stop and remove a Mysql Docker instance
 clean-mysql: stop-mysql
 	sudo docker rm mysql
+
+#
+# Mica stack
+#
+
+# Start all the Mica stack
+run-all: run-mongodb run-mysql run-opal run-mica run
+	sleep 30
+
+run-mongodb:
+	sudo docker run -d --name mongodb dockerfile/mongodb
+
+run-opal:
+	sudo docker run -d -p 8843:8443 -p 8880:8080 --name opal --link mongodb:mongodb obiba/opal:snapshot
+
+run-mica:
+	sudo docker run -d -p 8845:8445 -p 8882:8082 --name mica --link mongodb:mongodb --link opal:opal obiba/mica:snapshot
+
+# Stop and clean all the Mica stack
+clean-all: clean clean-mica clean-opal clean-mysql clean-mongodb
+	
+clean-mica:
+	sudo docker stop mica
+	sudo docker rm mica
+
+clean-opal:
+	sudo docker stop opal
+	sudo docker rm opal
+
+clean-mongodb:
+	sudo docker stop mongodb
+	sudo docker rm mongodb
