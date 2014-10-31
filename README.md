@@ -2,6 +2,7 @@ Docker Mica Drupal
 ==================
 
 Mica Drupal client docker. Depends on the dockers:
+
 * mysql
 * mongodb
 * opal
@@ -16,6 +17,10 @@ make run-all
 To seed some data in Opal and Mica:
 
 ```
+# Prior to seed, if not already done, install the opal and mical python clients
+./seed/setup.sh
+
+# Then import some data
 make seed-all
 ```
 
