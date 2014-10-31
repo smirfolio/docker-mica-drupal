@@ -61,8 +61,10 @@ clean-mysql: stop-mysql
 #
 
 # Start all the Mica stack
-run-all: run-mongodb run-mysql run-opal run-mica run
-	sleep 30
+run-all: run-mongodb run-mysql run-opal run-mica wait run
+
+wait:
+	sleep 20
 
 run-mongodb:
 	sudo docker run -d --name mongodb dockerfile/mongodb
