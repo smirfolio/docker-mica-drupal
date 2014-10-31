@@ -26,18 +26,24 @@ opal file -o https://$OPAL_HOST:$OPAL_PORT -u administrator -p password -up seed
 
 echo "Importing data files..."
 opal import-xml -o https://$OPAL_HOST:$OPAL_PORT -u administrator -p password -pa /tmp/data-mica.zip -d mica
-opal import-xml -o https://$OPAL_HOST:$OPAL_PORT -u administrator -p password -pa /tmp/data-CLS.zip -d CLS
-opal import-xml -o https://$OPAL_HOST:$OPAL_PORT -u administrator -p password -pa /tmp/data-CLSA.zip -d CLSA
-opal import-xml -o https://$OPAL_HOST:$OPAL_PORT -u administrator -p password -pa /tmp/data-ULSAM.zip -d ULSAM
-opal import-xml -o https://$OPAL_HOST:$OPAL_PORT -u administrator -p password -pa /tmp/data-LBLS.zip -d LBLS
-
 while [ `opal rest -o https://$OPAL_HOST:$OPAL_PORT -u administrator -p password -m GET /shell/commands -j | grep -ch "NOT_STARTED\|IN_PROGRESS"` -gt 0 ]
-do
-	echo -n "."
-	sleep 5
-done
+do echo -n "."; sleep 5; done; echo "."
 
-echo "."
+opal import-xml -o https://$OPAL_HOST:$OPAL_PORT -u administrator -p password -pa /tmp/data-CLS.zip -d CLS
+while [ `opal rest -o https://$OPAL_HOST:$OPAL_PORT -u administrator -p password -m GET /shell/commands -j | grep -ch "NOT_STARTED\|IN_PROGRESS"` -gt 0 ]
+do echo -n "."; sleep 5; done; echo "."
+
+opal import-xml -o https://$OPAL_HOST:$OPAL_PORT -u administrator -p password -pa /tmp/data-CLSA.zip -d CLSA
+while [ `opal rest -o https://$OPAL_HOST:$OPAL_PORT -u administrator -p password -m GET /shell/commands -j | grep -ch "NOT_STARTED\|IN_PROGRESS"` -gt 0 ]
+do echo -n "."; sleep 5; done; echo "."
+
+opal import-xml -o https://$OPAL_HOST:$OPAL_PORT -u administrator -p password -pa /tmp/data-ULSAM.zip -d ULSAM
+while [ `opal rest -o https://$OPAL_HOST:$OPAL_PORT -u administrator -p password -m GET /shell/commands -j | grep -ch "NOT_STARTED\|IN_PROGRESS"` -gt 0 ]
+do echo -n "."; sleep 5; done; echo "."
+
+opal import-xml -o https://$OPAL_HOST:$OPAL_PORT -u administrator -p password -pa /tmp/data-LBLS.zip -d LBLS
+while [ `opal rest -o https://$OPAL_HOST:$OPAL_PORT -u administrator -p password -m GET /shell/commands -j | grep -ch "NOT_STARTED\|IN_PROGRESS"` -gt 0 ]
+do echo -n "."; sleep 5; done; echo "."
 
 echo "Indexing data..."
 opal rest -o https://$OPAL_HOST:$OPAL_PORT -u administrator -p password -m PUT /datasource/mica/table/SMK/index
