@@ -92,3 +92,9 @@ clean-mongodb:
 seed-all:
 	./seed/opal-seed.sh
 	./seed/mica-seed.sh
+
+# Pull the latest nightly builds
+pull-all:
+	sudo docker pull obiba/opal
+	sudo docker pull obiba/mica
+	sudo docker pull obiba/mica-drupal

@@ -40,3 +40,10 @@ To shutdown the whole Mica stack:
 make clean-all
 ```
 
+How to get the latest builds from docker repositories:
+
+```
+# Pull Opal, Mica, Mica Drupal dockers
+make pull-all
+```
+
