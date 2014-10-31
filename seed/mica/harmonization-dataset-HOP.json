@@ -30,6 +30,13 @@
                 "dataCollectionEventId": "ps",
                 "project": "CLSA",
                 "table": "HOP"
+            },
+            {
+                "studyId": "ulsam",
+                "populationId": "core",
+                "dataCollectionEventId": "ULSAM88",
+                "project": "ULSAM",
+                "table": "HOP"
             }
         ]
     }
