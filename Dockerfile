@@ -40,6 +40,7 @@ RUN cp /app/sites/default/default.settings.php /app/sites/default/settings.php &
     chmod a+w /app/sites/default/settings.php && \
     chmod a+w /app/sites/default
 
+RUN cp /opt/mica/data/000-default.conf /etc/apache2/sites-available/000-default.conf
 RUN cp /opt/mica/data/htaccess /app/.htaccess
 
 # Define default command.

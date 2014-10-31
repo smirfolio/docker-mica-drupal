@@ -75,17 +75,25 @@ run-mica:
 
 # Stop and clean all the Mica stack
 clean-all: clean clean-mica clean-opal clean-mysql clean-mongodb
-	
-clean-mica:
+
+stop-all: stop stop-mica stop-opal stop-mysql stop-mongodb
+
+stop-mica:
 	sudo docker stop mica
+
+clean-mica: stop-mica
 	sudo docker rm mica
 
-clean-opal:
+stop-opal:
 	sudo docker stop opal
+
+clean-opal: stop-opal
 	sudo docker rm opal
 
-clean-mongodb:
+stop-mongodb:
 	sudo docker stop mongodb
+
+clean-mongodb: stop-mongodb
 	sudo docker rm mongodb
 
 # Seed the Mica stack
