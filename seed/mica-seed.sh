@@ -4,10 +4,10 @@ MICA_HOST=localhost
 MICA_PORT=8845
 
 echo "Creating studies..."
-mica rest -mk https://$MICA_HOST:$MICA_PORT -u administrator -p password -m POST /draft/studies --content-type "application/json" < seed/mica/study-CLSA.json
-mica rest -mk https://$MICA_HOST:$MICA_PORT -u administrator -p password -m POST /draft/studies --content-type "application/json" < seed/mica/study-CLS.json
-mica rest -mk https://$MICA_HOST:$MICA_PORT -u administrator -p password -m POST /draft/studies --content-type "application/json" < seed/mica/study-LBLS.json
-mica rest -mk https://$MICA_HOST:$MICA_PORT -u administrator -p password -m POST /draft/studies --content-type "application/json" < seed/mica/study-ULSAM.json
+mica rest -mk https://$MICA_HOST:$MICA_PORT -u administrator -p password -m POST /draft/studies --content-type "application/json" < ./seed/mica/study-CLSA.json
+mica rest -mk https://$MICA_HOST:$MICA_PORT -u administrator -p password -m POST /draft/studies --content-type "application/json" < ./seed/mica/study-CLS.json
+mica rest -mk https://$MICA_HOST:$MICA_PORT -u administrator -p password -m POST /draft/studies --content-type "application/json" < ./seed/mica/study-LBLS.json
+mica rest -mk https://$MICA_HOST:$MICA_PORT -u administrator -p password -m POST /draft/studies --content-type "application/json" < ./seed/mica/study-ULSAM.json
 
 echo "Publishing studies..."
 mica rest -mk https://$MICA_HOST:$MICA_PORT -u administrator -p password -m PUT /draft/study/clsa/_publish
@@ -16,30 +16,30 @@ mica rest -mk https://$MICA_HOST:$MICA_PORT -u administrator -p password -m PUT 
 mica rest -mk https://$MICA_HOST:$MICA_PORT -u administrator -p password -m PUT /draft/study/ulsam/_publish
 
 echo "Creating networks..."
-mica rest -mk https://$MICA_HOST:$MICA_PORT -u administrator -p password -m POST /draft/networks --content-type "application/json" < seed/mica/network-BBMRI.json
+mica rest -mk https://$MICA_HOST:$MICA_PORT -u administrator -p password -m POST /draft/networks --content-type "application/json" < ./seed/mica/network-BBMRI.json
 
 echo "Publishing networks..."
 mica rest -mk https://$MICA_HOST:$MICA_PORT -u administrator -p password -m PUT /draft/network/bbmri/_publish
 
 echo "Creating study datasets..."
-mica rest -mk https://$MICA_HOST:$MICA_PORT -u administrator -p password -m POST /draft/study-datasets --content-type "application/json" < seed/mica/study-dataset-FNAC.json
-mica rest -mk https://$MICA_HOST:$MICA_PORT -u administrator -p password -m POST /draft/study-datasets --content-type "application/json" < seed/mica/study-dataset-WAVE1.json
-mica rest -mk https://$MICA_HOST:$MICA_PORT -u administrator -p password -m POST /draft/study-datasets --content-type "application/json" < seed/mica/study-dataset-WAVE2.json
-mica rest -mk https://$MICA_HOST:$MICA_PORT -u administrator -p password -m POST /draft/study-datasets --content-type "application/json" < seed/mica/study-dataset-WAVE3.json
-mica rest -mk https://$MICA_HOST:$MICA_PORT -u administrator -p password -m POST /draft/study-datasets --content-type "application/json" < seed/mica/study-dataset-WAVE4.json
-mica rest -mk https://$MICA_HOST:$MICA_PORT -u administrator -p password -m POST /draft/study-datasets --content-type "application/json" < seed/mica/study-dataset-ULSAM50.json
-mica rest -mk https://$MICA_HOST:$MICA_PORT -u administrator -p password -m POST /draft/study-datasets --content-type "application/json" < seed/mica/study-dataset-ULSAM60.json
-mica rest -mk https://$MICA_HOST:$MICA_PORT -u administrator -p password -m POST /draft/study-datasets --content-type "application/json" < seed/mica/study-dataset-ULSAM70.json
-mica rest -mk https://$MICA_HOST:$MICA_PORT -u administrator -p password -m POST /draft/study-datasets --content-type "application/json" < seed/mica/study-dataset-ULSAM77.json
-mica rest -mk https://$MICA_HOST:$MICA_PORT -u administrator -p password -m POST /draft/study-datasets --content-type "application/json" < seed/mica/study-dataset-ULSAM82.json
-mica rest -mk https://$MICA_HOST:$MICA_PORT -u administrator -p password -m POST /draft/study-datasets --content-type "application/json" < seed/mica/study-dataset-ULSAM88.json
-mica rest -mk https://$MICA_HOST:$MICA_PORT -u administrator -p password -m POST /draft/study-datasets --content-type "application/json" < seed/mica/study-dataset-1978.json
-mica rest -mk https://$MICA_HOST:$MICA_PORT -u administrator -p password -m POST /draft/study-datasets --content-type "application/json" < seed/mica/study-dataset-1981.json
-mica rest -mk https://$MICA_HOST:$MICA_PORT -u administrator -p password -m POST /draft/study-datasets --content-type "application/json" < seed/mica/study-dataset-1994.json
-mica rest -mk https://$MICA_HOST:$MICA_PORT -u administrator -p password -m POST /draft/study-datasets --content-type "application/json" < seed/mica/study-dataset-1997.json
-mica rest -mk https://$MICA_HOST:$MICA_PORT -u administrator -p password -m POST /draft/study-datasets --content-type "application/json" < seed/mica/study-dataset-2000.json
-mica rest -mk https://$MICA_HOST:$MICA_PORT -u administrator -p password -m POST /draft/study-datasets --content-type "application/json" < seed/mica/study-dataset-2003.json
-mica rest -mk https://$MICA_HOST:$MICA_PORT -u administrator -p password -m POST /draft/study-datasets --content-type "application/json" < seed/mica/study-dataset-2008.json
+mica rest -mk https://$MICA_HOST:$MICA_PORT -u administrator -p password -m POST /draft/study-datasets --content-type "application/json" < ./seed/mica/study-dataset-FNAC.json
+mica rest -mk https://$MICA_HOST:$MICA_PORT -u administrator -p password -m POST /draft/study-datasets --content-type "application/json" < ./seed/mica/study-dataset-WAVE1.json
+mica rest -mk https://$MICA_HOST:$MICA_PORT -u administrator -p password -m POST /draft/study-datasets --content-type "application/json" < ./seed/mica/study-dataset-WAVE2.json
+mica rest -mk https://$MICA_HOST:$MICA_PORT -u administrator -p password -m POST /draft/study-datasets --content-type "application/json" < ./seed/mica/study-dataset-WAVE3.json
+mica rest -mk https://$MICA_HOST:$MICA_PORT -u administrator -p password -m POST /draft/study-datasets --content-type "application/json" < ./seed/mica/study-dataset-WAVE4.json
+mica rest -mk https://$MICA_HOST:$MICA_PORT -u administrator -p password -m POST /draft/study-datasets --content-type "application/json" < ./seed/mica/study-dataset-ULSAM50.json
+mica rest -mk https://$MICA_HOST:$MICA_PORT -u administrator -p password -m POST /draft/study-datasets --content-type "application/json" < ./seed/mica/study-dataset-ULSAM60.json
+mica rest -mk https://$MICA_HOST:$MICA_PORT -u administrator -p password -m POST /draft/study-datasets --content-type "application/json" < ./seed/mica/study-dataset-ULSAM70.json
+mica rest -mk https://$MICA_HOST:$MICA_PORT -u administrator -p password -m POST /draft/study-datasets --content-type "application/json" < ./seed/mica/study-dataset-ULSAM77.json
+mica rest -mk https://$MICA_HOST:$MICA_PORT -u administrator -p password -m POST /draft/study-datasets --content-type "application/json" < ./seed/mica/study-dataset-ULSAM82.json
+mica rest -mk https://$MICA_HOST:$MICA_PORT -u administrator -p password -m POST /draft/study-datasets --content-type "application/json" < ./seed/mica/study-dataset-ULSAM88.json
+mica rest -mk https://$MICA_HOST:$MICA_PORT -u administrator -p password -m POST /draft/study-datasets --content-type "application/json" < ./seed/mica/study-dataset-1978.json
+mica rest -mk https://$MICA_HOST:$MICA_PORT -u administrator -p password -m POST /draft/study-datasets --content-type "application/json" < ./seed/mica/study-dataset-1981.json
+mica rest -mk https://$MICA_HOST:$MICA_PORT -u administrator -p password -m POST /draft/study-datasets --content-type "application/json" < ./seed/mica/study-dataset-1994.json
+mica rest -mk https://$MICA_HOST:$MICA_PORT -u administrator -p password -m POST /draft/study-datasets --content-type "application/json" < ./seed/mica/study-dataset-1997.json
+mica rest -mk https://$MICA_HOST:$MICA_PORT -u administrator -p password -m POST /draft/study-datasets --content-type "application/json" < ./seed/mica/study-dataset-2000.json
+mica rest -mk https://$MICA_HOST:$MICA_PORT -u administrator -p password -m POST /draft/study-datasets --content-type "application/json" < ./seed/mica/study-dataset-2003.json
+mica rest -mk https://$MICA_HOST:$MICA_PORT -u administrator -p password -m POST /draft/study-datasets --content-type "application/json" < ./seed/mica/study-dataset-2008.json
 
 echo "Publishing study datasets..."
 mica rest -mk https://$MICA_HOST:$MICA_PORT -u administrator -p password -m PUT /draft/study-dataset/fnac/_publish
@@ -62,13 +62,13 @@ mica rest -mk https://$MICA_HOST:$MICA_PORT -u administrator -p password -m PUT 
 mica rest -mk https://$MICA_HOST:$MICA_PORT -u administrator -p password -m PUT /draft/study-dataset/2008/_publish
 
 echo "Creating harmonization datasets..."
-mica rest -mk https://$MICA_HOST:$MICA_PORT -u administrator -p password -m POST /draft/harmonization-datasets --content-type "application/json" < seed/mica/harmonization-dataset-HOP.json
-mica rest -mk https://$MICA_HOST:$MICA_PORT -u administrator -p password -m POST /draft/harmonization-datasets --content-type "application/json" < seed/mica/harmonization-dataset-SMK.json
+mica rest -mk https://$MICA_HOST:$MICA_PORT -u administrator -p password -m POST /draft/harmonization-datasets --content-type "application/json" < ./seed/mica/harmonization-dataset-HOP.json
+mica rest -mk https://$MICA_HOST:$MICA_PORT -u administrator -p password -m POST /draft/harmonization-datasets --content-type "application/json" < ./seed/mica/harmonization-dataset-SMK.json
 
 echo "Publishing harmonization datasets..."
 mica rest -mk https://$MICA_HOST:$MICA_PORT -u administrator -p password -m PUT /draft/harmonization-dataset/hop/_publish
 mica rest -mk https://$MICA_HOST:$MICA_PORT -u administrator -p password -m PUT /draft/harmonization-dataset/smk/_publish
 
 if [ -d "seed/mica-export" ]; then
-	mica import-zip -mk https://$MICA_HOST:$MICA_PORT -u administrator -p password -pub seed/mica-export
+	mica import-zip -mk https://$MICA_HOST:$MICA_PORT -u administrator -p password -pub ./seed/mica-export
 fi

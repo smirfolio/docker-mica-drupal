@@ -11,18 +11,18 @@ do
 done
 
 echo "Creating projects..."
-opal rest -o https://$OPAL_HOST:$OPAL_PORT -u administrator -p password -m POST /projects --content-type "application/json" < seed/opal/project-mica.json
-opal rest -o https://$OPAL_HOST:$OPAL_PORT -u administrator -p password -m POST /projects --content-type "application/json" < seed/opal/project-CLSA.json
-opal rest -o https://$OPAL_HOST:$OPAL_PORT -u administrator -p password -m POST /projects --content-type "application/json" < seed/opal/project-CLS.json
-opal rest -o https://$OPAL_HOST:$OPAL_PORT -u administrator -p password -m POST /projects --content-type "application/json" < seed/opal/project-LBLS.json
-opal rest -o https://$OPAL_HOST:$OPAL_PORT -u administrator -p password -m POST /projects --content-type "application/json" < seed/opal/project-ULSAM.json
+opal rest -o https://$OPAL_HOST:$OPAL_PORT -u administrator -p password -m POST /projects --content-type "application/json" < ./seed/opal/project-mica.json
+opal rest -o https://$OPAL_HOST:$OPAL_PORT -u administrator -p password -m POST /projects --content-type "application/json" < ./seed/opal/project-CLSA.json
+opal rest -o https://$OPAL_HOST:$OPAL_PORT -u administrator -p password -m POST /projects --content-type "application/json" < ./seed/opal/project-CLS.json
+opal rest -o https://$OPAL_HOST:$OPAL_PORT -u administrator -p password -m POST /projects --content-type "application/json" < ./seed/opal/project-LBLS.json
+opal rest -o https://$OPAL_HOST:$OPAL_PORT -u administrator -p password -m POST /projects --content-type "application/json" < ./seed/opal/project-ULSAM.json
 
 echo "Uploading data files..."
-opal file -o https://$OPAL_HOST:$OPAL_PORT -u administrator -p password -up seed/opal/data-mica.zip /tmp
-opal file -o https://$OPAL_HOST:$OPAL_PORT -u administrator -p password -up seed/opal/data-CLS.zip /tmp
-opal file -o https://$OPAL_HOST:$OPAL_PORT -u administrator -p password -up seed/opal/data-CLSA.zip /tmp
-opal file -o https://$OPAL_HOST:$OPAL_PORT -u administrator -p password -up seed/opal/data-ULSAM.zip /tmp
-opal file -o https://$OPAL_HOST:$OPAL_PORT -u administrator -p password -up seed/opal/data-LBLS.zip /tmp
+opal file -o https://$OPAL_HOST:$OPAL_PORT -u administrator -p password -up ./seed/opal/data-mica.zip /tmp
+opal file -o https://$OPAL_HOST:$OPAL_PORT -u administrator -p password -up ./seed/opal/data-CLS.zip /tmp
+opal file -o https://$OPAL_HOST:$OPAL_PORT -u administrator -p password -up ./seed/opal/data-CLSA.zip /tmp
+opal file -o https://$OPAL_HOST:$OPAL_PORT -u administrator -p password -up ./seed/opal/data-ULSAM.zip /tmp
+opal file -o https://$OPAL_HOST:$OPAL_PORT -u administrator -p password -up ./seed/opal/data-LBLS.zip /tmp
 
 echo "Importing data files..."
 opal import-xml -o https://$OPAL_HOST:$OPAL_PORT -u administrator -p password -pa /tmp/data-mica.zip -d mica
