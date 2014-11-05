@@ -79,7 +79,7 @@ run-mica:
 
 # Stop and clean all the Mica stack
 clean-all:
-	sudo docker rm -f $(sudo docker ps -a -q)
+	sudo docker rm -f `sudo docker ps -a -q`
 
 stop-all: stop stop-mica stop-opal stop-mysql stop-mongodb
 
@@ -141,4 +141,4 @@ pull-all:
 
 # Remove all images
 clean-images:
-	sudo docker rmi -f $(sudo docker images -q)
+	sudo docker rmi -f `sudo docker images -q`
