@@ -37,8 +37,8 @@ stop:
 	sudo docker stop mica-drupal
 
 # Stop and remove a Mica Docker instance
-clean: stop
-	sudo docker rm mica-drupal
+clean: 
+	sudo docker rm -f mica-drupal
 
 #
 # MySQL
@@ -53,8 +53,8 @@ stop-mysql:
 	sudo docker stop mysql
 
 # Stop and remove a Mysql Docker instance
-clean-mysql: stop-mysql
-	sudo docker rm mysql
+clean-mysql:
+	sudo docker rm -f mysql
 
 #
 # Mica stack
@@ -78,35 +78,67 @@ run-mica:
 	sleep 5
 
 # Stop and clean all the Mica stack
-clean-all: clean clean-mica clean-opal clean-mysql clean-mongodb
+clean-all:
+	sudo docker rm -f $(sudo docker ps -a -q)
 
 stop-all: stop stop-mica stop-opal stop-mysql stop-mongodb
 
 stop-mica:
 	sudo docker stop mica
 
-clean-mica: stop-mica
-	sudo docker rm mica
+clean-mica: 
+	sudo docker rm -f mica
 
 stop-opal:
 	sudo docker stop opal
 
-clean-opal: stop-opal
-	sudo docker rm opal
+clean-opal: 
+	sudo docker rm -f opal
 
 stop-mongodb:
 	sudo docker stop mongodb
 
-clean-mongodb: stop-mongodb
-	sudo docker rm mongodb
+clean-mongodb: 
+	sudo docker rm -f mongodb
+
+# Pause and unpause all the Mica stack
+pause-all:
+	sudo docker pause mica-drupal
+	sudo docker pause mica
+	sudo docker pause opal
+	sudo docker pause mysql
+	sudo docker pause mongodb
+
+unpause-all:
+	sudo docker unpause mongodb
+	sudo docker unpause mysql
+	sudo docker unpause opal
+	sudo docker unpause mica
+	sudo docker unpause mica-drupal
+
+#
+# Seed
+#
 
 # Seed the Mica stack
-seed-all:
+seed-all: seed-opal seed-mica
+
+seed-opal:
 	./seed/opal-seed.sh
+
+seed-mica:
 	./seed/mica-seed.sh
+
+#
+# Images
+#
 
 # Pull the latest nightly builds
 pull-all:
 	sudo docker pull obiba/opal
 	sudo docker pull obiba/mica
 	sudo docker pull obiba/mica-drupal
+
+# Remove all images
+clean-images:
+	sudo docker rmi -f $(sudo docker images -q)
