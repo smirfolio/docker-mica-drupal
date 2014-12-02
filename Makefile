@@ -135,9 +135,9 @@ seed-mica:
 
 # Pull the latest nightly builds
 pull-all:
-	sudo docker pull obiba/opal
-	sudo docker pull obiba/mica
-	sudo docker pull obiba/mica-drupal
+	sudo docker pull obiba/opal:snapshot
+	sudo docker pull obiba/mica:snapshot
+	sudo docker pull obiba/mica-drupal:snapshot
 
 # Remove all images
 clean-images:
