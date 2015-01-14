@@ -9,10 +9,10 @@ cd /app && \
   drush vset -y clean_url 1 && \
   drush dl -y bootstrap && \
   drush en -y bootstrap && \
-  drush en -y micado_bootstrap && \
-  drush vset -y theme_default micado_bootstrap && \
+  drush en -y obiba_bootstrap && \
+  drush vset -y theme_default obiba_bootstrap && \
   drush vset -y admin_theme seven && \
-  drush en -y mica_client && \
+  drush en -y obiba_mica && \
   drush en -y obiba_auth && \
   drush dl -y jquery_update && \
   drush en -y jquery_update && \

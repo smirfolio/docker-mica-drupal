@@ -26,8 +26,8 @@ RUN \
   cd /tmp && \
   wget -q https://github.com/obiba/mica-drupal7-client/archive/master.zip && \
   unzip master && rm master.zip && \
-  cp -r mica-drupal7-client-master/drupal/modules/mica_client /app/sites/all/modules && \
-  cp -r mica-drupal7-client-master/drupal/themes/micado_bootstrap /app/sites/all/themes && \
+  cp -r mica-drupal7-client-master/drupal/modules/obiba_mica /app/sites/all/modules && \
+  cp -r mica-drupal7-client-master/drupal/themes/obiba_bootstrap /app/sites/all/themes && \
   wget -q https://github.com/obiba/drupal7-auth/archive/master.zip && \
   unzip master && rm master.zip && \
   mv drupal7-auth-master /app/sites/all/modules/obiba_auth && \
