@@ -9,6 +9,10 @@ FROM centurylink/apache-php:latest
 
 MAINTAINER OBiBa <dev@obiba.org>
 
+ENV LANG C.UTF-8
+ENV LANGUAGE C.UTF-8
+ENV LC_ALL C.UTF-8
+
 COPY data /opt/mica/data
 COPY bin /opt/mica/bin
 
