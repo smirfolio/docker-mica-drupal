@@ -20,6 +20,9 @@ cd /app && \
   drush vset -y jquery_update_jquery_version 1.8 && \
   drush vset -y jquery_update_jquery_admin_version 1.8 && \
   drush datatables-download && \
-  drush datatables-plugins-download
+  drush datatables-plugins-download && \
+  drush vset -y obiba-progressbar-lib obiba-progressbar-1.0.0 && \
+  drush vset -y obiba-progressbar-file "dist/obiba-progressbar" && \
+  drush obiba-progressbar-download 1.0.0
 
 supervisord -n
