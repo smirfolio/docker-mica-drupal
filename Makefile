@@ -67,7 +67,7 @@ wait:
 	sleep 5
 
 run-mongodb:
-	sudo docker run -d --name mongodb dockerfile/mongodb
+	sudo docker run -d --name mongodb mongo
 
 run-opal:
 	sudo docker run -d -p 8843:8443 -p 8880:8080 --name opal --link mongodb:mongodb obiba/opal:snapshot
