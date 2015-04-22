@@ -70,11 +70,11 @@ run-mongodb:
 	sudo docker run -d --name mongodb mongo
 
 run-opal:
-	sudo docker run -d -p 8843:8443 -p 8880:8080 --name opal --link mongodb:mongodb obiba/opal:snapshot
+	sudo docker run -d -p 8843:8443 -p 8880:8080 --name opal --link mongodb:mongo obiba/opal:snapshot
 	sleep 5
 
 run-mica:
-	sudo docker run -d -p 8845:8445 -p 8882:8082 --name mica --link mongodb:mongodb --link opal:opal obiba/mica:snapshot
+	sudo docker run -d -p 8845:8445 -p 8882:8082 --name mica --link mongodb:mongo --link opal:opal obiba/mica:snapshot
 	sleep 5
 
 # Stop and clean all the Mica stack
