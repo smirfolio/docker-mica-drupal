@@ -61,13 +61,17 @@ clean-mysql:
 #
 
 # Start all the Mica stack
-run-all: run-mongodb run-mysql wait run-opal run-mica run
+run-all: run-mongodb run-mysql wait run-agate run-opal run-mica run
 
 wait:
 	sleep 5
 
 run-mongodb:
 	sudo docker run -d --name mongodb mongo
+
+run-agate:
+	sudo docker run -d -p 8844:8444 -p 8881:8081 --name agate --link mongodb:mongo obiba/agate:snapshot
+	sleep 5
 
 run-opal:
 	sudo docker run -d -p 8843:8443 -p 8880:8080 --name opal --link mongodb:mongo obiba/opal:snapshot
@@ -81,7 +85,13 @@ run-mica:
 clean-all:
 	sudo docker rm -f `sudo docker ps -a -q`
 
-stop-all: stop stop-mica stop-opal stop-mysql stop-mongodb
+stop-all: stop stop-mica stop-opal stop-agate stop-mysql stop-mongodb
+
+stop-agate:
+	sudo docker stop agate
+
+clean-agate:
+	sudo docker rm -f agate
 
 stop-mica:
 	sudo docker stop mica
@@ -104,6 +114,7 @@ clean-mongodb:
 # Pause and unpause all the Mica stack
 pause-all:
 	sudo docker pause mica-drupal
+	sudo docker pause agate
 	sudo docker pause mica
 	sudo docker pause opal
 	sudo docker pause mysql
@@ -112,6 +123,7 @@ pause-all:
 unpause-all:
 	sudo docker unpause mongodb
 	sudo docker unpause mysql
+	sudo docker unpause agate
 	sudo docker unpause opal
 	sudo docker unpause mica
 	sudo docker unpause mica-drupal
@@ -135,6 +147,7 @@ seed-mica:
 
 # Pull the latest nightly builds
 pull-all:
+	sudo docker pull obiba/agate:snapshot
 	sudo docker pull obiba/opal:snapshot
 	sudo docker pull obiba/mica:snapshot
 	sudo docker pull obiba/mica-drupal:snapshot
