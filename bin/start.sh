@@ -28,7 +28,7 @@ cd /app && \
   drush en -y obiba_main_app_angular && \
   rm -rf sites/all/libraries/angular-app  && \
   drush angular-app && \
-  drush en -y obiba_auth && \
+  drush en -y obiba_agate && \
   drush vset -y mica_url https://$AGATE_PORT_8444_TCP_ADDR:8444 && \
   drush en -y obiba_mica_data_access_request
 

@@ -32,9 +32,9 @@ RUN \
   unzip master && rm master.zip && \
   cp -r mica-drupal7-client-master/drupal/modules/obiba_mica /app/sites/all/modules && \
   cp -r mica-drupal7-client-master/drupal/themes/obiba_bootstrap /app/sites/all/themes && \
-  wget -q https://github.com/obiba/drupal7-auth/archive/master.zip && \
+  wget -q https://github.com/obiba/agate-drupal7-client/archive/master.zip && \
   unzip master && rm master.zip && \
-  mv drupal7-auth-master /app/sites/all/modules/obiba_auth && \
+  mv agate-drupal7-client-master /app/sites/all/modules/obiba_agate && \
   wget -q https://github.com/obiba/drupal7-protobuf/archive/master.zip && \
   unzip master && rm master.zip && \
   mv drupal7-protobuf-master /app/sites/all/modules/obiba_protobuf
