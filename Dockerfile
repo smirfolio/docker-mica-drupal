@@ -19,25 +19,21 @@ COPY bin /opt/mica/bin
 RUN chmod +x -R /opt/mica/bin
 
 RUN \
-  apt-get update && DEBIAN_FRONTEND=noninteractive apt-get -y install supervisor pwgen wget unzip mysql-client php5-curl
+  curl -sL https://deb.nodesource.com/setup | sudo bash - && \
+  apt-get update && \
+  DEBIAN_FRONTEND=noninteractive apt-get -y install supervisor pwgen wget unzip mysql-client php5-curl make nodejs && \
+  npm install -g bower
 
 # Install Mica Drupal client
 RUN \
   pear channel-discover pear.drush.org && \
   pear install drush/drush && \
-  rm -fr /app && \
-  drush make --prepare-install /opt/mica/data/drupal-basic.make /app && \
   cd /tmp && \
-  wget -q https://github.com/obiba/mica-drupal7-client/archive/master.zip && \
-  unzip master && rm master.zip && \
-  cp -r mica-drupal7-client-master/drupal/modules/obiba_mica /app/sites/all/modules && \
-  cp -r mica-drupal7-client-master/drupal/themes/obiba_bootstrap /app/sites/all/themes && \
-  wget -q https://github.com/obiba/agate-drupal7-client/archive/master.zip && \
-  unzip master && rm master.zip && \
-  mv agate-drupal7-client-master /app/sites/all/modules/obiba_agate && \
-  wget -q https://github.com/obiba/drupal7-protobuf/archive/master.zip && \
-  unzip master && rm master.zip && \
-  mv drupal7-protobuf-master /app/sites/all/modules/obiba_protobuf
+  wget -q https://github.com/obiba/mica2-home/archive/master.zip && \
+  unzip -q master.zip && rm master.zip && \
+  cd mica2-home-master && \
+  make prepare-drupal-snapshot && \
+  rm -fr /app && ln -s /tmp/mica2-home-master/target/drupal/ /app
 
 # Config and set permissions for setting.php
 RUN cp /app/sites/default/default.settings.php /app/sites/default/settings.php && \
