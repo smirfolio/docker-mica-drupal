@@ -5,6 +5,7 @@ cd /tmp/mica2-home-master && \
 # Configure Drupal
 cd /tmp/mica2-home-master && \
   make enable-modules setup-dependencies cc && \
+  cd /app && \
   drush vset -y mica_url https://$MICA_PORT_8445_TCP_ADDR:8445 && \
   drush vset -y agate_url https://$AGATE_PORT_8444_TCP_ADDR:8444
 
