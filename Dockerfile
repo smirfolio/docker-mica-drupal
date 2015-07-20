@@ -22,7 +22,8 @@ RUN \
   curl -sL https://deb.nodesource.com/setup | sudo bash - && \
   apt-get update && \
   DEBIAN_FRONTEND=noninteractive apt-get -y install supervisor pwgen wget unzip mysql-client php5-curl make nodejs && \
-  npm install -g bower
+  npm install -g bower && \
+  git config --global url."https://".insteadOf git://
 
 # Install Mica Drupal client
 RUN \
