@@ -5,7 +5,7 @@
 #
 
 # Pull base image
-FROM centurylink/apache-php:latest
+FROM php:5-apache
 
 MAINTAINER OBiBa <dev@obiba.org>
 
@@ -19,15 +19,15 @@ COPY bin /opt/mica/bin
 RUN chmod +x -R /opt/mica/bin
 
 RUN \
-  curl -sL https://deb.nodesource.com/setup | sudo bash - && \
+  curl -sL https://deb.nodesource.com/setup | bash - && \
   apt-get update && \
-  DEBIAN_FRONTEND=noninteractive apt-get -y install supervisor pwgen wget unzip mysql-client php5-curl make nodejs && \
+  DEBIAN_FRONTEND=noninteractive apt-get -y install supervisor git pwgen wget unzip mysql-client php5-curl make nodejs && \
   npm install -g bower && \
   git config --global url."https://".insteadOf git://
 
 # Install Composer
 RUN \
-  curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
+  curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 # Install Drush
 RUN \
