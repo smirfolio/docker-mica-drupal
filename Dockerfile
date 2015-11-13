@@ -25,10 +25,18 @@ RUN \
   npm install -g bower && \
   git config --global url."https://".insteadOf git://
 
+# Install Composer
+RUN \
+  curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
+
+# Install Drush
+RUN \
+  composer global require drush/drush && \
+  ln -s /root/.composer/vendor/bin/drush /usr/local/bin/drush && \
+  drush status
+
 # Install Mica Drupal client
 RUN \
-  pear channel-discover pear.drush.org && \
-  pear install drush/drush && \
   cd /tmp && \
   wget -q https://github.com/obiba/mica2-home/archive/master.zip && \
   unzip -q master.zip && rm master.zip && \
