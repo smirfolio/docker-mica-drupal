@@ -22,11 +22,11 @@ build:
 
 # Run a Mica Docker instance
 run:
-	docker run -d -p 8888:80 --name mica-drupal --link mysql-obiba:mysql --link mica:mica -e MYSQL_DATABASE=$(mysql_database) -e MYSQL_ROOT_PASSWORD=$(mysql_root_password) obiba/mica-drupal:snapshot
+	docker run -d -p 8888:80 --name mica-drupal --link mysql-obiba:mysql --link mica:mica --link agate:agate -e MYSQL_DATABASE=$(mysql_database) -e MYSQL_ROOT_PASSWORD=$(mysql_root_password) obiba/mica-drupal:snapshot
 
 # Run a Mica Docker instance with shell
 run-sh:
-	docker run -ti -p 8888:80 --name mica-drupal -v $(pwd):/data --link mysql-obiba:mysql --link mica:mica -e MYSQL_DATABASE=$(mysql_database) -e MYSQL_ROOT_PASSWORD=$(mysql_root_password) obiba/mica-drupal:snapshot bash
+	docker run -ti -p 8888:80 --name mica-drupal -v $(pwd):/data --link mysql-obiba:mysql --link mica:mica --link agate:agate -e MYSQL_DATABASE=$(mysql_database) -e MYSQL_ROOT_PASSWORD=$(mysql_root_password) obiba/mica-drupal:snapshot bash
 
 # Show logs
 logs:
@@ -74,11 +74,11 @@ run-agate:
 	sleep 5
 
 run-opal:
-	docker run -d -p 8843:8443 -p 8880:8080 --name opal --link mongodb-obiba:mongo obiba/opal:snapshot
+	docker run -d -p 8843:8443 -p 8880:8080 --name opal --link mongodb-obiba:mongo --link agate:agate obiba/opal:snapshot
 	sleep 5
 
 run-mica:
-	docker run -d -p 8845:8445 -p 8882:8082 --name mica --link mongodb-obiba:mongo --link opal:opal obiba/mica:snapshot
+	docker run -d -p 8845:8445 -p 8882:8082 --name mica --link mongodb-obiba:mongo --link opal:opal --link agate:agate obiba/mica:snapshot
 	sleep 5
 
 # Stop and clean all the Mica stack
