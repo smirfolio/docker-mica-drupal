@@ -21,19 +21,9 @@ RUN chmod +x -R /opt/mica/bin
 RUN \
   curl -sL https://deb.nodesource.com/setup | bash - && \
   apt-get update && \
-  DEBIAN_FRONTEND=noninteractive apt-get -y install git pwgen wget unzip mysql-client php5-curl php5-mysql make nodejs && \
+  DEBIAN_FRONTEND=noninteractive apt-get -y install git pwgen wget unzip mysql-client php5-curl php5-mysql drush make nodejs && \
   npm install -g bower && \
   git config --global url."https://".insteadOf git://
-
-# Install Composer
-RUN \
-  curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-
-# Install Drush
-RUN \
-  composer global require drush/drush && \
-  ln -s /root/.composer/vendor/bin/drush /usr/local/bin/drush && \
-  drush status
 
 # Install Mica Drupal client
 RUN \
