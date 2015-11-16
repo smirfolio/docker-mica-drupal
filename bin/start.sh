@@ -1,12 +1,13 @@
 # Configure database
 cd /tmp/mica2-home-master && \
-  make import-sql settings db_host=$MYSQL_PORT_3306_TCP_ADDR db_name=$MYSQL_DATABASE db_pass=$MYSQL_ROOT_PASSWORD
+  make import-sql settings db_host=$MYSQL_PORT_3306_TCP_ADDR db_name=$MYSQL_DATABASE db_pass=$MYSQL_ROOT_PASSWORD drupal_dir=/var/www/html
 
 # Configure Drupal
+cs /var/www/html && drush dl charts
 cd /tmp/mica2-home-master && \
-  make enable-modules setup-dependencies cc && \
-  cd /app && \
+  make enable-modules setup-dependencies drupal_dir=/var/www/html && \
+  cd /var/www/html && \
   drush vset -y mica_url https://$MICA_PORT_8445_TCP_ADDR:8445 && \
   drush vset -y agate_url https://$AGATE_PORT_8444_TCP_ADDR:8444
 
-supervisord -n
+apache2-foreground

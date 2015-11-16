@@ -5,7 +5,7 @@
 #
 
 # Pull base image
-FROM php:5-apache
+FROM drupal:7.39
 
 MAINTAINER OBiBa <dev@obiba.org>
 
@@ -21,7 +21,7 @@ RUN chmod +x -R /opt/mica/bin
 RUN \
   curl -sL https://deb.nodesource.com/setup | bash - && \
   apt-get update && \
-  DEBIAN_FRONTEND=noninteractive apt-get -y install supervisor git pwgen wget unzip mysql-client php5-curl php5-mysql make nodejs && \
+  DEBIAN_FRONTEND=noninteractive apt-get -y install git pwgen wget unzip mysql-client php5-curl php5-mysql make nodejs && \
   npm install -g bower && \
   git config --global url."https://".insteadOf git://
 
@@ -41,9 +41,7 @@ RUN \
   wget -q https://github.com/obiba/mica2-home/archive/master.zip && \
   unzip -q master.zip && rm master.zip && \
   cd mica2-home-master && \
-  make prepare-drupal-snapshot && \
-  chown -R www-data:www-data /tmp/mica2-home-master/target/drupal/ && \
-  cd /var/www && rmdir html && ln -s /tmp/mica2-home-master/target/drupal html
+  make prepare-drupal-modules-snapshot drupal_dir=/var/www/html
 
 # Config and set permissions for setting.php
 RUN \
@@ -54,6 +52,8 @@ RUN \
 
 RUN cp /opt/mica/data/000-default.conf /etc/apache2/sites-available/000-default.conf
 RUN cp /opt/mica/data/htaccess /var/www/html/.htaccess
+
+#CMD ["bash", "-c", "/opt/mica/bin/start.sh"]
 
 # http
 EXPOSE 80
