@@ -3,7 +3,7 @@ cd /tmp/mica2-home-master && \
   make import-sql settings db_host=$MYSQL_PORT_3306_TCP_ADDR db_name=$MYSQL_DATABASE db_pass=$MYSQL_ROOT_PASSWORD drupal_dir=/var/www/html
 
 # Configure Drupal
-cs /var/www/html && drush dl charts
+cd /var/www/html && drush dl charts
 cd /tmp/mica2-home-master && \
   make enable-modules setup-dependencies drupal_dir=/var/www/html && \
   cd /var/www/html && \
