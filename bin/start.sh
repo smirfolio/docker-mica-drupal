@@ -1,6 +1,6 @@
 # Configure database
 cd /tmp/mica2-home-master && \
-  make import-sql settings db_host=$MYSQL_PORT_3306_TCP_ADDR db_name=$MYSQL_DATABASE db_pass=$MYSQL_ROOT_PASSWORD drupal_dir=/var/www/html
+  make import-sql-tables settings db_host=$MYSQL_PORT_3306_TCP_ADDR db_name=$MYSQL_DATABASE db_pass=$MYSQL_ROOT_PASSWORD drupal_dir=/var/www/html
 
 # Configure Drupal
 cd /tmp/mica2-home-master && \
