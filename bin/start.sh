@@ -1,13 +1,10 @@
-# Configure database
-cd /tmp/mica2-home-master && \
-  make import-sql-tables settings db_host=$MYSQL_PORT_3306_TCP_ADDR db_name=$MYSQL_DATABASE db_pass=$MYSQL_ROOT_PASSWORD drupal_dir=/var/www/html
+#!/bin/bash
 
-# Configure Drupal
-cd /tmp/mica2-home-master && \
-  make enable-modules setup-dependencies drupal_dir=/var/www/html && \
-  cd /var/www/html && \
-  drush vset -y mica_url https://$MICA_PORT_8445_TCP_ADDR:8445 && \
-  drush vset -y agate_url https://$AGATE_PORT_8444_TCP_ADDR:8444 && \
-  chown -R www-data:www-data sites
+# Check if 1st run. Then configure database.
+if [ -e /opt/mica/bin/first_run.sh ]
+    then
+    /opt/mica/bin/first_run.sh
+    mv /opt/mica/bin/first_run.sh /opt/mica/bin/first_run.sh.done
+fi
 
 apache2-foreground
