@@ -5,11 +5,11 @@ Mica Drupal client docker. Depends on the dockers:
 
 * mysql
 * mongodb
-* agate
-* opal
-* mica
+* [agate](https://hub.docker.com/r/obiba/agate/)
+* [opal](https://hub.docker.com/r/obiba/opal/)
+* [mica](https://hub.docker.com/r/obiba/mica/)
 
-To launch the whole Mica stack:
+To launch the whole Mica stack using [docker-compose](https://docs.docker.com/compose/):
 
 ```
 # Run and link MongoDB, MySQL, Agate, Opal, Mica and Mica Drupal
