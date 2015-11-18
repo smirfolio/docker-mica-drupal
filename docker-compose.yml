@@ -3,7 +3,7 @@ mica-drupal:
   ports:
   - "8888:80"
   links:
-  - mysql-obiba:mysql
+  - mysql
   - mica
   - agate
   environment:
@@ -15,7 +15,7 @@ mica:
   - "8845:8445"
   - "8882:8082"
   links:
-  - mongodb-obiba:mongo
+  - mongo
   - opal
   - agate
 opal:
@@ -24,17 +24,17 @@ opal:
   - "8843:8443"
   - "8880:8080"
   links:
-  - mongodb-obiba:mongo
+  - mongo
 agate:
   image: obiba/agate:snapshot
   ports:
   - "8844:8444"
   - "8881:8081"
   links:
-  - mongodb-obiba:mongo
-mongodb-obiba:
+  - mongo
+mongo:
   image: mongo
-mysql-obiba:
+mysql:
   image: mysql
   environment:
   - MYSQL_DATABASE=drupal_mica
