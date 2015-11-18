@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Wait for MySQL to be ready
-until mysql -h $MYSQL_PORT_3306_TCP_ADDR -u root -p$MYSQL_ROOT_PASSWORD -e ";"
+until mysql -h $MYSQL_PORT_3306_TCP_ADDR -u root -p$MYSQL_ROOT_PASSWORD -e ";" &> /dev/null
 do
   sleep 1
 done
