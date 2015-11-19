@@ -19,17 +19,13 @@ COPY bin /opt/mica/bin
 RUN chmod +x -R /opt/mica/bin
 
 RUN \
-  curl -sL https://deb.nodesource.com/setup | bash - && \
   apt-get update && \
-  DEBIAN_FRONTEND=noninteractive apt-get -y install git pwgen wget unzip mysql-client php5-curl php5-mysql drush make nodejs && \
-  npm install -g bower && \
-  git config --global url."https://".insteadOf git://
+  DEBIAN_FRONTEND=noninteractive apt-get -y install mysql-client php5-curl php5-mysql drush make
 
 # Install Mica Drupal client
 RUN \
   cd /tmp && \
-  wget -q https://github.com/obiba/mica2-home/archive/master.zip && \
-  unzip -q master.zip && rm master.zip && \
+  curl -Ls https://github.com/obiba/mica2-home/archive/master.tar.gz | tar -xzf - && \
   cd mica2-home-master && \
   make prepare-drupal-modules-snapshot drupal_dir=/var/www/html
 
