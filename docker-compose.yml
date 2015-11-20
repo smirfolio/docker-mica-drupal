@@ -9,6 +9,8 @@ mica-drupal:
   environment:
   - MYSQL_DATABASE=drupal_mica
   - MYSQL_ROOT_PASSWORD=password
+  - DRUPAL_ADMINISTRATOR_PASSWORD=password
+  - MICA_ANONYMOUS_PASSWORD=password
 mica:
   image: obiba/mica:snapshot
   ports:
@@ -18,6 +20,9 @@ mica:
   - mongo
   - opal
   - agate
+  environment:
+  - MICA_ADMINISTRATOR_PASSWORD=password
+  - MICA_ANONYMOUS_PASSWORD=toto
 opal:
   image: obiba/opal:snapshot
   ports:
@@ -27,11 +32,10 @@ opal:
   - mongo
   - agate
   - rserver
+  environment:
+  - OPAL_ADMINISTRATOR_PASSWORD=password
 rserver:
   image: obiba/opal-rserver:snapshot
-  ports:
-  - "6612:6312"
-  - "6611:6311"
 agate:
   image: obiba/agate:snapshot
   ports:
@@ -39,6 +43,8 @@ agate:
   - "8881:8081"
   links:
   - mongo
+  environment:
+  - AGATE_ADMINISTRATOR_PASSWORD=password
 mongo:
   image: mongo
 mysql:

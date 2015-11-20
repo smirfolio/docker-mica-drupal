@@ -39,6 +39,9 @@ RUN \
 RUN cp /opt/mica/data/000-default.conf /etc/apache2/sites-available/000-default.conf
 RUN cp /opt/mica/data/htaccess /var/www/html/.htaccess
 
+ENV DRUPAL_ADMINISTRATOR_PASSWORD=password
+ENV MICA_ANONYMOUS_PASSWORD=password
+
 CMD ["/opt/mica/bin/start.sh"]
 
 # http
