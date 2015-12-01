@@ -20,7 +20,18 @@ RUN chmod +x -R /opt/mica/bin
 
 RUN \
   apt-get update && \
-  DEBIAN_FRONTEND=noninteractive apt-get -y install mysql-client php5-curl php5-mysql drush make
+  DEBIAN_FRONTEND=noninteractive apt-get -y install mysql-client php5-curl php5-mysql make
+
+# Install Composer
+RUN \
+  curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+# Install Drush
+RUN \
+  composer global require drush/drush && \
+  ln -s /root/.composer/vendor/bin/drush /usr/local/bin/drush && \
+  drush dl composer-8.x-1.x && \
+  drush status
 
 # Install Mica Drupal client
 RUN \

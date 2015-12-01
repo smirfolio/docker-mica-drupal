@@ -19,4 +19,4 @@ cd /var/www/html && \
   drush vset -y agate_url https://$AGATE_PORT_8444_TCP_ADDR:8444 && \
   drush upwd administrator --password=$DRUPAL_ADMINISTRATOR_PASSWORD && \
   drush vset -y mica_anonymous_password $MICA_ANONYMOUS_PASSWORD && \
-  chown -R www-data:www-data sites
+  chown -R www-data:www-data .
