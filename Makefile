@@ -32,3 +32,7 @@ clean-all:
 # Remove all images
 clean-images:
 	docker rmi -f `docker images -q`
+
+# Remove all containers
+clean-containers:
+	docker rm -f `docker ps -a -q`
