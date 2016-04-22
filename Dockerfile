@@ -52,8 +52,14 @@ RUN cp /opt/mica/data/htaccess /var/www/html/.htaccess
 
 ENV DRUPAL_ADMINISTRATOR_PASSWORD=password
 ENV MICA_ANONYMOUS_PASSWORD=password
+ENV BASE_URL=
 
-CMD ["/opt/mica/bin/start.sh"]
+VOLUME /var/www/html
 
 # http
 EXPOSE 80
+
+# Define default command.
+COPY ./docker-entrypoint.sh /
+ENTRYPOINT ["/docker-entrypoint.sh"]
+CMD ["app"]
