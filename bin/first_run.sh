@@ -16,7 +16,7 @@ fi
 # Drupal settings
 if [ ! -z $BASE_URL ]
 	then
-	echo '$$base_url = "'$BASE_URL'";' >> /var/www/html/sites/default/settings.php
+	echo '$base_url = "'$BASE_URL'";' >> /var/www/html/sites/default/settings.php
 fi
 
 # Configure Drupal (requires database connection)
