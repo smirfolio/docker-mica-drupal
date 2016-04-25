@@ -19,7 +19,8 @@ cd /tmp/mica2-home-master && \
 
 if [ ! -z $BASE_URL ]
 	then
-	echo '$$base_url = "$BASE_URL";' >> /var/www/html/sites/default/settings.php
+	echo '$$base_url = "'$BASE_URL'";' >> /var/www/html/sites/default/settings.php
+	cat /var/www/html/sites/default/settings.php
 fi
 
 if [ -n $MICA_PORT_8445_TCP_ADDR ]
