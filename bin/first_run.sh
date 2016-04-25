@@ -13,15 +13,15 @@ if [ -n $MYSQL_PORT_3306_TCP_ADDR ]
 	  make import-sql-tables settings db_host=$MYSQL_PORT_3306_TCP_ADDR db_name=$MYSQL_DATABASE db_pass=$MYSQL_ROOT_PASSWORD drupal_dir=/var/www/html
 fi
 
-# Configure Drupal
-cd /tmp/mica2-home-master && \
-  make enable-modules-snapshot drupal_dir=/var/www/html
-
+# Drupal settings
 if [ ! -z $BASE_URL ]
 	then
 	echo '$$base_url = "'$BASE_URL'";' >> /var/www/html/sites/default/settings.php
-	cat /var/www/html/sites/default/settings.php
 fi
+
+# Configure Drupal (requires database connection)
+cd /tmp/mica2-home-master && \
+	make enable-modules-snapshot drupal_dir=/var/www/html
 
 if [ -n $MICA_PORT_8445_TCP_ADDR ]
 	then

@@ -20,6 +20,9 @@ help:
 build:
 	docker build --no-cache=$(no_cache) -t="obiba/mica-drupal:snapshot" .
 
+run-test:
+	rm -rf /tmp/drupal && docker run -ti --volumes /tmp/drupal:/var/www/html --name mica_drupal obiba/mica-drupal:snapshot bash
+
 # Run a Mica stack
 run-all:
 	COMPOSE_HTTP_TIMEOUT=600 docker-compose up -d
