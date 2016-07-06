@@ -18,9 +18,9 @@ make run-all
 
 Then connect to:
 
-* Agate [http://localhost:8881](http://localhost:8881)
-* Opal [http://localhost:8880](http://localhost:8880)
-* Mica [http://localhost:8882](http://localhost:8882)
+* Agate [https://localhost:8844](https://localhost:8844)
+* Opal [https://localhost:8843](https://localhost:8843)
+* Mica [https://localhost:8845](https://localhost:8845)
 * Mica Drupal [http://localhost:8888](http://localhost:8888)
 
 All username passwords are `administrator/password`.
