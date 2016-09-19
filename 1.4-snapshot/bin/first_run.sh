@@ -21,7 +21,7 @@ fi
 
 # Configure Drupal (requires database connection)
 cd /tmp/mica2-home-master && \
-	make enable-modules-branch-snapshot drupal_dir=/var/www/html mica_js_dependencies_branch=${MICA_JS_VERSION}
+	make enable-modules-snapshot drupal_dir=/var/www/html mica_js_dependencies_branch=${MICA_JS_VERSION}
 
 if [ -n $MICA_PORT_8445_TCP_ADDR ]
 	then
