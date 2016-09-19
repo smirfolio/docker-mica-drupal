@@ -20,6 +20,9 @@ help:
 build:
 	docker build --no-cache=$(no_cache) -t="obiba/mica-drupal:snapshot" .
 
+build14x:
+	docker build --no-cache=$(no_cache) -t="obiba/mica-drupal:1.4-snapshot" 1.4-snapshot
+
 run-test:
 	rm -rf /tmp/drupal && docker run -ti --volumes /tmp/drupal:/var/www/html --name mica_drupal obiba/mica-drupal:snapshot bash
 
