@@ -19,6 +19,9 @@ if [ ! -z $BASE_URL ]
 	echo '$base_url = "'$BASE_URL'";' >> /var/www/html/sites/default/settings.php
 fi
 
+# Remove memory limit to prevent drush memory error
+echo "ini_set('memory_limit', '-1');" >> /var/www/html/sites/default/settings.php
+
 # Configure Drupal (requires database connection)
 cd /tmp/mica2-home-master && \
 	make enable-modules-snapshot drupal_dir=/var/www/html
