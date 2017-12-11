@@ -48,7 +48,7 @@ agate:
   - RECAPTCHA_SITE_KEY=6Lfo7gYTAAAAAOyl8_MHuH-AVBzRDtpIuJrjL3Pb
   - RECAPTCHA_SECRET_KEY=6Lfo7gYTAAAAADym-vSDvPBeBCXaxIprA0QXLk_b
 mongo:
-  image: mongo
+  image: mongo:3.4
 mysql:
   image: mysql
   environment:
