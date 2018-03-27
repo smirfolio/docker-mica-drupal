@@ -33,7 +33,7 @@ RUN \
 
 # Install Drush
 RUN \
-  composer global require drush/drush && \
+  composer global require drush/drush:7.* && \
   ln -s /root/.composer/vendor/bin/drush /usr/local/bin/drush && \
   drush dl composer-8.x-1.x && \
   drush status
