@@ -5,7 +5,7 @@
 #
 
 # Pull base image
-FROM drupal:7.53
+FROM drupal:7.58
 
 MAINTAINER OBiBa <dev@obiba.org>
 
@@ -20,7 +20,7 @@ RUN chmod +x -R /opt/mica/bin
 
 RUN \
   apt-get update && \
-  DEBIAN_FRONTEND=noninteractive apt-get -y install mysql-client php5-curl php5-mysql make
+  DEBIAN_FRONTEND=noninteractive apt-get -y install mysql-client make
 
 # Install Composer
 RUN \
