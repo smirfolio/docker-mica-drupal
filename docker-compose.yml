@@ -50,7 +50,7 @@ agate:
 mongo:
   image: mongo:3.4
 mysql:
-  image: mysql
+  image: mysql:5.7
   environment:
   - MYSQL_DATABASE=drupal_mica
   - MYSQL_ROOT_PASSWORD=password
