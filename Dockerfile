@@ -5,7 +5,7 @@
 #
 
 # Pull base image
-FROM drupal:7.53
+FROM drupal:7.59
 
 MAINTAINER OBiBa <dev@obiba.org>
 
@@ -20,7 +20,7 @@ RUN chmod +x -R /opt/mica/bin
 
 RUN \
   apt-get update && \
-  DEBIAN_FRONTEND=noninteractive apt-get -y install mysql-client php5-curl php5-mysql make
+  DEBIAN_FRONTEND=noninteractive apt-get -y install mysql-client make
 
 # Install Composer
 RUN \
@@ -28,7 +28,7 @@ RUN \
 
 # Install Drush
 RUN \
-  composer global require drush/drush && \
+  composer global require drush/drush:7.* && \
   ln -s /root/.composer/vendor/bin/drush /usr/local/bin/drush && \
   drush dl composer-8.x-1.x && \
   drush status
