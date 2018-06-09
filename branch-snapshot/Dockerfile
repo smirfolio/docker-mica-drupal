@@ -41,8 +41,8 @@ RUN \
 # Install Mica Drupal client
 RUN \
   cd /tmp && \
-  curl -Ls https://github.com/obiba/mica2-home/archive/master.tar.gz | tar -xzf - && \
-  cd mica2-home-master && \
+  curl -Ls https://github.com/obiba/obiba-home/archive/master.tar.gz | tar -xzf - && \
+  cd obiba-home-master && \
   make prepare-drupal-modules-snapshot drupal_dir=/var/www/html mica-drupal7_branch=${MICA_MODULE_VERSION} agate-drupal7_branch=${AGATE_MODULE_VERSION} bootstrap-drupal7_branch=${BOOTSTRAP_MODULE_VERSION}
 
 # Config and set permissions for setting.php

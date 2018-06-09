@@ -36,8 +36,8 @@ RUN \
 # Install Mica Drupal client
 RUN \
   cd /tmp && \
-  curl -Ls https://github.com/obiba/mica2-home/archive/master.tar.gz | tar -xzf - && \
-  cd mica2-home-master && \
+  curl -Ls https://github.com/obiba/obiba-home/archive/master.tar.gz | tar -xzf - && \
+  cd obiba-home-master && \
   make prepare-drupal-modules-snapshot drupal_dir=/var/www/html
 
 # Config and set permissions for setting.php
