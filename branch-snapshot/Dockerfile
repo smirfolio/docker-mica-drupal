@@ -43,7 +43,7 @@ RUN \
   cd /tmp && \
   curl -Ls https://github.com/obiba/obiba-home/archive/master.tar.gz | tar -xzf - && \
   cd obiba-home-master && \
-  rm -rf opal mica2 && \
+  rm -rf opal/seed mica2/seed && \
   make prepare-drupal-modules-snapshot drupal_dir=/var/www/html mica-drupal7_branch=${MICA_MODULE_VERSION} agate-drupal7_branch=${AGATE_MODULE_VERSION} bootstrap-drupal7_branch=${BOOTSTRAP_MODULE_VERSION}
 
 # Config and set permissions for setting.php
