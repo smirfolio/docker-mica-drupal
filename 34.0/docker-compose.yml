@@ -1,5 +1,5 @@
 mica-drupal:
-  image: obiba/mica-drupal:snapshot
+  image: obiba/mica-drupal:34.0
   ports:
   - "8888:80"
   links:
@@ -12,7 +12,7 @@ mica-drupal:
   - DRUPAL_ADMINISTRATOR_PASSWORD=password
   - MICA_ANONYMOUS_PASSWORD=password
 mica:
-  image: obiba/mica:snapshot
+  image: obiba/mica:3.4
   ports:
   - "8845:8445"
   - "8882:8082"
@@ -24,7 +24,7 @@ mica:
   - MICA_ADMINISTRATOR_PASSWORD=password
   - MICA_ANONYMOUS_PASSWORD=password
 opal:
-  image: obiba/opal:snapshot
+  image: obiba/opal:2.12
   ports:
   - "8843:8443"
   - "8880:8080"
@@ -35,9 +35,9 @@ opal:
   environment:
   - OPAL_ADMINISTRATOR_PASSWORD=password
 rserver:
-  image: obiba/opal-rserver:snapshot
+  image: obiba/opal-rserver:1.5
 agate:
-  image: obiba/agate:snapshot
+  image: obiba/agate:1.4
   ports:
   - "8844:8444"
   - "8881:8081"
