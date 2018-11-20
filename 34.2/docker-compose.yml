@@ -1,0 +1,58 @@
+mica-drupal:
+  image: obiba/mica-drupal:34.2
+  ports:
+  - "8888:80"
+  links:
+  - mysql
+  - mica
+  - agate
+  environment:
+  - MYSQL_DATABASE=drupal_mica
+  - MYSQL_ROOT_PASSWORD=password
+  - DRUPAL_ADMINISTRATOR_PASSWORD=password
+  - MICA_ANONYMOUS_PASSWORD=password
+mica:
+  image: obiba/mica:3.4
+  ports:
+  - "8845:8445"
+  - "8882:8082"
+  links:
+  - mongo
+  - opal
+  - agate
+  environment:
+  - MICA_ADMINISTRATOR_PASSWORD=password
+  - MICA_ANONYMOUS_PASSWORD=password
+opal:
+  image: obiba/opal:2.12
+  ports:
+  - "8843:8443"
+  - "8880:8080"
+  links:
+  - mongo
+  - agate
+  - rserver
+  environment:
+  - OPAL_ADMINISTRATOR_PASSWORD=password
+rserver:
+  image: obiba/opal-rserver:1.5
+agate:
+  image: obiba/agate:1.4
+  ports:
+  - "8844:8444"
+  - "8881:8081"
+  links:
+  - mongo
+  environment:
+  - AGATE_ADMINISTRATOR_PASSWORD=password
+  - RECAPTCHA_SITE_KEY=6Lfo7gYTAAAAAOyl8_MHuH-AVBzRDtpIuJrjL3Pb
+  - RECAPTCHA_SECRET_KEY=6Lfo7gYTAAAAADym-vSDvPBeBCXaxIprA0QXLk_b
+mongo:
+  image: mongo:3.4
+mysql:
+  image: mysql:5.7
+  environment:
+  - MYSQL_DATABASE=drupal_mica
+  - MYSQL_USER=drupal
+  - MYSQL_PASSWORD=password
+  - MYSQL_ROOT_PASSWORD=password
