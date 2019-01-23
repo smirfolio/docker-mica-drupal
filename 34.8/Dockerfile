@@ -13,6 +13,11 @@ ENV LANG C.UTF-8
 ENV LANGUAGE C.UTF-8
 ENV LC_ALL C.UTF-8
 
+ENV MICA_MODULE_VERSION 7.x-34.8
+ENV AGATE_MODULE_VERSION 7.x-2.6
+ENV BOOTSTRAP_MODULE_VERSION 7.x-5.5
+ENV MICA_JS_VERSION 3.4.4
+
 COPY data /opt/mica/data
 COPY bin /opt/mica/bin
 
@@ -39,7 +44,7 @@ RUN \
   curl -Ls https://github.com/obiba/obiba-home/archive/master.tar.gz | tar -xzf - && \
   cd obiba-home-master && \
   rm -rf opal/seed mica2/seed && \
-  make prepare-drupal-modules-snapshot drupal_dir=/var/www/html
+  make prepare-drupal-modules-snapshot drupal_dir=/var/www/html mica-drupal7_branch=${MICA_MODULE_VERSION} agate-drupal7_branch=${AGATE_MODULE_VERSION} bootstrap-drupal7_branch=${BOOTSTRAP_MODULE_VERSION}
 
 # Config and set permissions for setting.php
 RUN \
