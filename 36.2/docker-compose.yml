@@ -1,5 +1,5 @@
 mica-drupal:
-  image: obiba/mica-drupal:35.1
+  image: obiba/mica-drupal:36.2
   ports:
   - "8888:80"
   links:
