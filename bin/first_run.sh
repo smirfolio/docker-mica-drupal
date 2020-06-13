@@ -24,9 +24,11 @@ echo "ini_set('memory_limit', '-1');" >> /var/www/html/sites/default/settings.ph
 
 # Configure Drupal (requires database connection)
 cd /tmp/obiba-home-master && \
-	make enable-modules-snapshot drupal_dir=/var/www/html && \
-	drush cc drush && \
-  make update-composer-autoload drupal_dir=/var/www/html
+	make enable-modules-release-branch drupal_dir=/var/www/html && \
+  make update-composer-autoload drupal_dir=/var/www/html && \
+  pushd /var/www/html && \
+  drush vset -y --format=string error_level 0 && \
+  popd
 
 if [ -n $MICA_PORT_8445_TCP_ADDR ]
 	then
