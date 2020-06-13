@@ -20,7 +20,7 @@ RUN chmod +x -R /opt/mica/bin
 
 RUN \
   apt-get update && \
-  DEBIAN_FRONTEND=noninteractive apt-get -y install mysql-client make
+  DEBIAN_FRONTEND=noninteractive apt-get -y install default-mysql-client make
 
 # Install Composer
 RUN \
@@ -28,7 +28,7 @@ RUN \
 
 # Install Drush
 RUN \
-  composer global require drush/drush:7.* && \
+  composer global require drush/drush:8.* && \
   ln -s /root/.composer/vendor/bin/drush /usr/local/bin/drush && \
   drush dl composer-8.x-1.x && \
   drush status
