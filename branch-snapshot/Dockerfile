@@ -5,7 +5,7 @@
 #
 
 # Pull base image
-FROM drupal:7.72
+FROM drupal:7.73
 
 MAINTAINER OBiBa <dev@obiba.org>
 
@@ -13,10 +13,10 @@ ENV LANG C.UTF-8
 ENV LANGUAGE C.UTF-8
 ENV LC_ALL C.UTF-8
 
-ENV MICA_MODULE_VERSION 7.x-40.x
+ENV MICA_MODULE_VERSION 7.x-42.x
 ENV AGATE_MODULE_VERSION 7.x-2.x
 ENV BOOTSTRAP_MODULE_VERSION 7.x-7.x
-ENV MICA_JS_VERSION branch-3.4.x
+ENV MICA_JS_VERSION branch-4.2.x
 
 COPY data /opt/mica/data
 COPY bin /opt/mica/bin
