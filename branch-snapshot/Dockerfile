@@ -5,7 +5,7 @@
 #
 
 # Pull base image
-FROM drupal:7.71
+FROM drupal:7.72
 
 MAINTAINER OBiBa <dev@obiba.org>
 
